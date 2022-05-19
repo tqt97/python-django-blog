@@ -17,6 +17,7 @@ __Create a superuser__
 3. python manage.py createsuperuser
 
 __Create a model__
+
 1. define class Model
 2. python manage.py makemigrations
 3. python manage.py sqlmigrate __app_name__ __migration_number__
@@ -62,22 +63,20 @@ __Deploy the Django Blog__
 
 1. pip install gunicorn
 2. pip install django-heroku
-<!-- 3. pip install dj_database_url -->
-<!-- 4. pip install python-decouple -->
-5. touch Procfile -> _web: gunicorn __appname__.wsgi_ #django_blog
-6. pip freeze > requirements.txt
-7. add __import django_heroku, dj_database_url__ to __settings.py__
-8. add __from decouple import config__ to __settings.py__
-9. add __STATICFILES_STORAGE = ['whitenoise.storage.CompressedManifestStaticFilesStorage']__ to __settings.py__
-10. add __django_heroku.settings(locals())__ to __settings.py__
-11. Upload to github
-12. heroku login
-13. heroku create _appname_
-14. heroku config:set DISABLE_COLLECTSTATIC=1
-15. heroku config:set SECRET_KEY='key'
-15. heroku config:set DEBUG_VALUE='True'
-16. heroku config:set EMAIL_USER='email'
-17. heroku config:set EMAIL_PASS='pass'
-18. heroku addons:create heroku-postgresql:hobby-dev
-19. git push heroku main(--your branch name)
-20. heroku run python manage.py migrate
+3. touch Procfile -> _web: gunicorn __appname__.wsgi_ #django_blog
+4. pip freeze > requirements.txt
+5. add __import django_heroku to __settings.py__
+6.  add __django_heroku.settings(locals())__ to __settings.py__
+7.  Upload to github
+8.  heroku login
+9.  heroku create _appname_
+10. heroku config:set DISABLE_COLLECTSTATIC=1
+11. heroku config:set SECRET_KEY='key'
+12. heroku config:set DEBUG_VALUE=True
+13. heroku config:set EMAIL_USER='email'
+14. heroku config:set EMAIL_PASS='pass'
+15. heroku addons:create heroku-postgresql:hobby-dev
+16. heroku pg 
+17. git push heroku main(--your branch name)
+18. heroku run python manage.py collectstatic
+19. heroku run python manage.py migrate
