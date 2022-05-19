@@ -74,4 +74,9 @@ __Deploy the Django Blog__
 12. heroku login
 13. heroku create _appname_
 14. heroku config:set DISABLE_COLLECTSTATIC=1
-15. git push heroku main(--your branch name)
+15. heroku config:set SECRET_KEY='key'
+15. heroku config:set DEBUG_VALUE='True'
+15. heroku config:set EMAIL_USER='kutuanonline199@gmail.com'
+15. heroku config:set EMAIL_PASS='kshguomvyhmzalzw'
+16. 
+17. git push heroku main(--your branch name)
