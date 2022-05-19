@@ -76,7 +76,8 @@ __Deploy the Django Blog__
 14. heroku config:set DISABLE_COLLECTSTATIC=1
 15. heroku config:set SECRET_KEY='key'
 15. heroku config:set DEBUG_VALUE='True'
-15. heroku config:set EMAIL_USER='kutuanonline199@gmail.com'
-15. heroku config:set EMAIL_PASS='kshguomvyhmzalzw'
-16. 
-17. git push heroku main(--your branch name)
+16. heroku config:set EMAIL_USER='email'
+17. heroku config:set EMAIL_PASS='pass'
+18. heroku addons:create heroku-postgresql:hobby-dev
+19. git push heroku main(--your branch name)
+20. heroku run python manage.py migrate
