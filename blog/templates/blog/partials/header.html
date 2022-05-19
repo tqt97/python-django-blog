@@ -1,0 +1,25 @@
+<header id="fh5co-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <ul class="fh5co-social hidden-xs">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}"><i class="icon-user"></i></a></li>
+                <li><a href="{% url 'post-create' %}"><i class="icon-book"></i></a></li>
+                <li><a href="{% url 'logout' %}"><i class="icon-log-out"></i></a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}"><i class="icon-login"></i></a></li>
+                {% endif %}
+            </ul>
+            <div class="col-lg-12 col-md-12 text-center">
+                <div id="fh5co-logo">
+                    <h1>
+                        <a href="{% url 'blog-home' %}">
+                            Django Blog
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

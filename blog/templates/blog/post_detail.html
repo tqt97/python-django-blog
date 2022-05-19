@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="row fh5co-post-entry fh5co-blog single-entry">
+    <article class="col-lg-12">
+        <figure>
+            <a href="">
+                <img src="{{ object.author.profile.image.url }}" alt="Image"
+                    class="img-responsive">
+            </a>
+        </figure>
+        <h2 class="fh5co-article-title animate-box">
+            {{ object.title }}
+        </h2>
+        <span class="fh5co-meta animate-box">
+            <a href="" class="mr-2">
+                <i class="icon-user"></i>
+                {{ object.author.username }}
+            </a>
+            <i class="icon-calendar"></i>
+            {{ object.post.date_posted|date:"d F, Y" }}
+        </span>
+        {% if object.author == user %}
+        <div class="animate-box">
+            <a class="btn btn-primary btn-sm mt-1 mb-1"
+                href="{% url 'post-edit' object.id %}">
+                <i class="icon-pencil"></i>
+            </a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1"
+                href="{% url 'post-delete' object.id %}">
+                <i class="icon-trash"></i>
+            </a>
+        </div>
+        {% endif %}
+        <div class="col-lg-12 content-article text-justify">
+            <div class="cp-r animate-box">
+                {{ object.content }}
+            </div>
+        </div>
+    </article>
+</div>
+{% endblock content %}

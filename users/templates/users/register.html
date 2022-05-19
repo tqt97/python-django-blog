@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="clearfix visible-xs-block"></div>
+<div class="animate-box">
+    <div class="col-md-12 col-md-offset-0 text-center fh5co-heading">
+        <h2><span>Register</span></h2>
+    </div>
+</div>
+
+<div class="clearfix visible-xs-block"></div>
+<div class="content-section animate-box">
+    <form method="POST">
+        {% csrf_token %}
+            {{ form|crispy }}
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+    <div class="border-top pb-5">
+        <small class="text-muted">
+            Already have an account?
+            <a class="ml-1" href="{% url 'login' %}">Sign in here</a>
+        </small>
+    </div>
+</div>
+{% endblock %}

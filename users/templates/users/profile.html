@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="clearfix visible-xs-block"></div>
+<div class="animate-box">
+    <div class="col-md-12 col-md-offset-0 text-center fh5co-heading">
+        <h2><span>Profile</span></h2>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="clearfix visible-xs-block"></div>
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="text-center">
+        <img src="{{ user.profile.image.url }}"
+            class="avatar img-circle img-thumbnail" alt="avatar">
+    </div>
+</div>
+<!-- edit form column -->
+<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
